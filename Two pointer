@@ -1,0 +1,58 @@
+i++ is known as post increment whereas ++i is called pre increment.
+
+i++
+
+i++ is post increment because it increments i's value by 1 after the operation is over.
+
+Let’s see the following example:
+
+int i = 1, j;
+j = i++;
+Here value of j = 1, but i = 2. Here the value of i will be assigned to j first, and then i will be incremented.
+
+++i
+
+++i is pre increment because it increments i's value by 1 before the operation. It means j = i; will execute after i++.
+
+Let’s see the following example:
+
+int i = 1, j;
+j = ++i;
+Here the value of j = 2 but i = 2. Here the value of i will be assigned to j after the i incremention of i. Similarly, ++i will be executed before j=i;.
+
+
+class Solution {
+    public int[] sortedSquares(int[] nums) {
+        int right = nums.length - 1;
+        int left = 0;
+        int[] result = new int[nums.length];
+        int index = result.length - 1;
+        while (left <= right) {
+            if (nums[left] * nums[left] > nums[right] * nums[right]) {
+                result[index--] = nums[left] * nums[left];
+                ++left;
+            } else {
+                result[index--] = nums[right] * nums[right];
+                --right;
+            }
+        }
+        return result;
+    }
+}
+
+class Solution {
+    public int removeElement(int[] nums, int val) {
+
+        // 快慢指针
+        int fastIndex = 0;
+        int slowIndex;
+        for (slowIndex = 0; fastIndex < nums.length; fastIndex++) {
+            if (nums[fastIndex] != val) {
+                nums[slowIndex] = nums[fastIndex];
+                slowIndex++;
+            }
+        }
+        return slowIndex;
+
+    }
+}
