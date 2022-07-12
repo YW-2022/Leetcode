@@ -1,0 +1,15 @@
+
+My guess is you are referring to the ternary operator, which is used like this:
+
+<some condition> ? <some value> : <some other value>;
+For example:
+
+int max = a > b ? a : b;
+It's a shorthand for an if and is equivalent to:
+
+int max;
+if (a > b) {
+    max = a;
+} else {
+    max = b;
+}
